@@ -2,6 +2,7 @@
   "name": "projectreact",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://hhmgogo.github.io/huigoingfun",
   "dependencies": {
     "bootstrap": "^5.1.0",
     "http-proxy-middleware": "^0.19.1",
@@ -42,6 +43,8 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
 "prestart": "node aspnetcore-https && node aspnetcore-react",
     "start": "rimraf ./build && react-scripts start",
     "build": "react-scripts build",
