@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/hhmgogo/huigoingfun/static/js/main.b10afa91.js",
-    "index.html": "/hhmgogo/huigoingfun/index.html",
-    "main.b10afa91.js.map": "/hhmgogo/huigoingfun/static/js/main.b10afa91.js.map"
+    "main.js": "/huigoingfun/static/js/main.b10afa91.js",
+    "index.html": "/huigoingfun/index.html",
+    "main.b10afa91.js.map": "/huigoingfun/static/js/main.b10afa91.js.map"
   },
   "entrypoints": [
     "static/js/main.b10afa91.js"
