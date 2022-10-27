@@ -1,6 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Login from './component/Login';
- 
-
-ReactDOM.render(<Login /> , document.getElementById('root'));
+import ReactDOM from "react-dom";
+import App from "./App";
+import "semantic-ui-css/semantic.min.css";
+ReactDOM.render(<App />, document.getElementById("root"));
