@@ -5,7 +5,8 @@ import Header from "./Header";
 import Posts from "pages/Posts";
 import Home from "pages/Home";
 import About from "pages/About";
-import Game1A2B from "pages/game/Game1A2B";
+import Portfolio from "pages/Portfolio";
+import NewPost from "pages/NewPost";
 function App() {
   return (
     <>
@@ -14,8 +15,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="Login" element={<Login />} />
         <Route path="Posts" element={<Posts />} />
+        <Route path="NewPost" element={<NewPost />} />
         <Route path="About" element={<About />} />
-        <Route path="Game1A2B" element={<Game1A2B />} />
+        <Route path="Portfolio" element={<Portfolio />} />
       </Routes>
     </>
   );

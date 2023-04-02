@@ -5,14 +5,18 @@ import Firebase from "./pages/Firebase";
 
 function Header() {
   const [user, setUser] = useState(null);
+  const [email, setEmail] = useState();
   useEffect(() => {
     Firebase.auth().onAuthStateChanged((currentUser) => {
       setUser(currentUser);
+      setEmail(Firebase.auth().currentUser.email);
     });
   });
   // const userEmail = Firebase.auth().currentUser.email
   //   ? Firebase.auth().currentUser.email
   //   : "";
+  // setEmail(Firebase.auth().currentUser.email);
+
   return (
     <Menu inverted pointing color="black">
       <Menu.Item name="Home" as={Link} to="/">
@@ -23,9 +27,9 @@ function Header() {
         <Icon name="blogger" />
         Posts
       </Menu.Item>
-      <Menu.Item name="Game1A2B" as={Link} to="/Game1A2B">
-        <Icon name="game" />
-        Game
+      <Menu.Item name="Portfolio" as={Link} to="/Portfolio">
+        <Icon name="like" />
+        Portfolio
       </Menu.Item>
       <Menu.Item name="About" as={Link} to="/About">
         <Icon name="meh" />
@@ -34,6 +38,8 @@ function Header() {
       <Menu.Menu position="right">
         <Menu.Item>
           <i aria-hidden="true" className="child   icon"></i>
+          <h5>{email === null || email === undefined ? "welcome" : email}</h5>
+
           {/* {userEmail ? <p>Welcome, {userEmail}!</p> : <p> </p>} */}
         </Menu.Item>
         {user ? (

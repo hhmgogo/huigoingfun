@@ -1,12 +1,15 @@
-import { Image } from "semantic-ui-react";
+import React from "react";
+import { Container, Image } from "semantic-ui-react";
 function Home() {
   return (
-    <>
+    <Container fluid>
       <Image
+        src="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500"
         centered
-        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y29kaW5nJTIwY29mZmV8ZW58MHx8MHx8&auto=format&fit=crop&w=1800&q=250"
+        rounded
+        fluid
       />
-    </>
+    </Container>
   );
 }
 export default Home;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, Form, Container, Message, Icon } from "semantic-ui-react";
+import { Menu, Form, Grid, Message, Icon } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import Firebase from "./Firebase";
 import "firebase/compat/auth";
@@ -65,53 +65,55 @@ function Login() {
   }
 
   return (
-    <Container>
-      <Menu widths="2" color="teal" inverted>
-        <Menu.Item
-          color="teal"
-          content=" 註冊"
-          active={activeItem === "register"}
-          onClick={() => {
-            setErrorMessage("");
-            setActiveItem((activeItem) => "register");
-          }}
-        />
-        <Menu.Item
-          color="teal"
-          content="  登入"
-          active={activeItem === "signin"}
-          onClick={() => {
-            setErrorMessage("");
-            setActiveItem((activeItem) => "signin");
-          }}
-        />
-      </Menu>
-      <Form onSubmit={onSubmit}>
-        <Form.Input
-          label="Mail"
-          value={Email}
-          placeholder="請輸入信箱"
-          onChange={(e) => setEmail(e.target.value)}
-        ></Form.Input>
-        <Form.Input
-          label="PassWord"
-          value={Password}
-          placeholder="請輸入密碼"
-          onChange={(e) => setpassword(e.target.value)}
-          type="password"
-        ></Form.Input>
-        {errorMessage && (
-          <Message color="red" icon>
-            <Icon name="warning" color="teal" />
-            {errorMessage}
-          </Message>
-        )}
-        <Form.Button color="teal" loading={isLoading}>
-          {activeItem === "register" && "註冊"}
-          {activeItem === "signin" && "登入"}
-        </Form.Button>
-      </Form>
-    </Container>
+    <Grid textAlign="center" style={{ height: "50vh" }} verticalAlign="middle">
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Menu widths="2" color="teal" inverted>
+          <Menu.Item
+            color="teal"
+            content=" 註冊"
+            active={activeItem === "register"}
+            onClick={() => {
+              setErrorMessage("");
+              setActiveItem((activeItem) => "register");
+            }}
+          />
+          <Menu.Item
+            color="teal"
+            content="  登入"
+            active={activeItem === "signin"}
+            onClick={() => {
+              setErrorMessage("");
+              setActiveItem((activeItem) => "signin");
+            }}
+          />
+        </Menu>
+        <Form onSubmit={onSubmit}>
+          <Form.Input
+            label="Mail"
+            value={Email}
+            placeholder="請輸入信箱"
+            onChange={(e) => setEmail(e.target.value)}
+          ></Form.Input>
+          <Form.Input
+            label="PassWord"
+            value={Password}
+            placeholder="請輸入密碼"
+            onChange={(e) => setpassword(e.target.value)}
+            type="password"
+          ></Form.Input>
+          {errorMessage && (
+            <Message color="red" icon>
+              <Icon name="warning" color="teal" />
+              {errorMessage}
+            </Message>
+          )}
+          <Form.Button color="teal" loading={isLoading}>
+            {activeItem === "register" && "註冊"}
+            {activeItem === "signin" && "登入"}
+          </Form.Button>
+        </Form>
+      </Grid.Column>
+    </Grid>
   );
 }
 
