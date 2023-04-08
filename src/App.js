@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import "./allStyle.css";
 import "semantic-ui-css/semantic.min.css";
+
 import Login from "pages/Login";
 import Header from "./Header";
 import Posts from "pages/Posts";

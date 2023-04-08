@@ -1,5 +1,13 @@
 import React from "react";
-import { Container, Grid, Button, Item, Image, Icon } from "semantic-ui-react";
+import {
+  Container,
+  Button,
+  Grid,
+  Image,
+  Icon,
+  Label,
+  Card,
+} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Topics from "../components/Topics";
 import Firebase from "../pages/Firebase";
@@ -80,41 +88,111 @@ function Posts() {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column width={9}>
-            <Item.Group>
+          <Grid.Column width={16}>
+            {/* <Item.Group>
               {posts.map((post) => {
                 return (
                   <Item key={post.id} as={Link} to={`${post.id}`}>
-                    <Item.Image src={post.imageURL} rounded />
+                    <Item.Image src={post.imageURL} size="medium" rounded />
                     <Item.Content verticalAlign="middle">
                       <Item.Meta>
-                        {post.author.photoUrl ? (
-                          <Image
-                            src={post.author.photoUrl}
-                            size="tiny"
-                            rounded
-                          />
-                        ) : (
-                          <Icon
-                            name="user circle outline"
-                            size="big"
-                            color="teal"
-                          ></Icon>
-                        )}
-                        {post.topic}.{post.author.displayName || "User"}
+                        <Item.Header>
+                          {post.author.photoUrl ? (
+                            <Image
+                              src={post.author.photoUrl}
+                              size="big"
+                              rounded
+                            />
+                          ) : (
+                            <Icon
+                              name="user circle outline"
+                              size="big"
+                              color="yellow"
+                            ></Icon>
+                          )}
+                          {post.topic}. {post.author.displayName || "使用者"}
+                        </Item.Header>
                       </Item.Meta>
                       <Item.Header>{post.title}</Item.Header>
                       <Item.Description>{post.content}</Item.Description>
                       <Item.Extra>
-                        留言 0 . 讚 <Icon name="like" />
+                        <Button as="div" labelPosition="right">
+                          <Button basic color="blue">
+                            <Icon name="chat" />
+                            留言
+                          </Button>
+                          <Label as="a" basic color="blue" pointing="left">
+                            0
+                          </Label>
+                        </Button>
+                        <Button as="div" labelPosition="right">
+                          <Button basic color="pink">
+                            <Icon name="heart" />讚
+                          </Button>
+                          <Label basic color="pink">
+                            {post.likeBy?.length}
+                          </Label>
+                        </Button>
                       </Item.Extra>
                     </Item.Content>
                   </Item>
                 );
               })}
-            </Item.Group>
+            </Item.Group> */}
+
+            {/* -------------- */}
+
+            <Card.Group>
+              {posts.map((post) => {
+                return (
+                  <Card
+                    key={post.id}
+                    as={Link}
+                    to={`${post.id}`}
+                    color="yellow"
+                  >
+                    <Card.Content>
+                      <Image
+                        floated="right"
+                        src={post.imageURL}
+                        size="medium"
+                        rounded
+                      />
+                      <Card.Header>{post.title}</Card.Header>
+                      <Card.Meta>
+                        {post.author.photoUrl ? (
+                          <Image
+                            src={post.author.photoUrl}
+                            size="big"
+                            rounded
+                          />
+                        ) : (
+                          <Icon
+                            name="user circle outline"
+                            size="small"
+                            color="yellow"
+                          ></Icon>
+                        )}
+                        {post.topic}. {post.author.displayName || "使用者"}
+                      </Card.Meta>
+                      <Card.Description>{post.conten}</Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+                      <Label size="medium" basic color="pink">
+                        <Icon name="like" />讚 {post.likeBy?.length}
+                      </Label>
+                      ．
+                      <Label size="medium" basic color="blue">
+                        <Icon name="chat" />
+                        留言 0
+                      </Label>
+                    </Card.Content>
+                  </Card>
+                );
+              })}
+            </Card.Group>
+            {/* ----------- */}
           </Grid.Column>
-          <Grid.Column width={7}>資訊 </Grid.Column>
         </Grid.Row>
       </Grid>
     </Container>
