@@ -13,8 +13,12 @@ import {
 import Topics from "../components/Topics";
 import { useParams } from "react-router-dom";
 import Firebase from "../pages/Firebase";
+import { useNavigate } from "react-router-dom";
 function Post() {
+  const Navigate = useNavigate();
   const { postId } = useParams();
+
+  console.log(useParams());
   const currentDate = new Date().toLocaleDateString();
 
   const [post, setPost] = useState({ author: [] });
@@ -67,6 +71,14 @@ function Post() {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
+        const user = Firebase.auth().currentUser;
+        if (user && user.uid) {
+          console.log(user.uid);
+        } else {
+          // UID 為空，執行其他程式碼，例如導向註冊頁面
+          Navigate("/Login");
+          console.log(user.uid);
+        }
         Firebase.firestore()
           .collection("posts")
           .doc(postId)
@@ -114,7 +126,6 @@ function Post() {
 
   function toggle(isActive, field) {
     const uid = Firebase.auth().currentUser.uid;
-
     Firebase.firestore()
       .collection("posts")
       .doc(postId)

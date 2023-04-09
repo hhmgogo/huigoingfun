@@ -11,7 +11,6 @@ import {
 import { Link } from "react-router-dom";
 import Topics from "../components/Topics";
 import Firebase from "../pages/Firebase";
-import Post from "pages/post";
 function Posts() {
   const [posts, setPosts] = React.useState([]);
 
@@ -89,57 +88,6 @@ function Posts() {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column width={16}>
-            {/* <Item.Group>
-              {posts.map((post) => {
-                return (
-                  <Item key={post.id} as={Link} to={`${post.id}`}>
-                    <Item.Image src={post.imageURL} size="medium" rounded />
-                    <Item.Content verticalAlign="middle">
-                      <Item.Meta>
-                        <Item.Header>
-                          {post.author.photoUrl ? (
-                            <Image
-                              src={post.author.photoUrl}
-                              size="big"
-                              rounded
-                            />
-                          ) : (
-                            <Icon
-                              name="user circle outline"
-                              size="big"
-                              color="yellow"
-                            ></Icon>
-                          )}
-                          {post.topic}. {post.author.displayName || "使用者"}
-                        </Item.Header>
-                      </Item.Meta>
-                      <Item.Header>{post.title}</Item.Header>
-                      <Item.Description>{post.content}</Item.Description>
-                      <Item.Extra>
-                        <Button as="div" labelPosition="right">
-                          <Button basic color="blue">
-                            <Icon name="chat" />
-                            留言
-                          </Button>
-                          <Label as="a" basic color="blue" pointing="left">
-                            0
-                          </Label>
-                        </Button>
-                        <Button as="div" labelPosition="right">
-                          <Button basic color="pink">
-                            <Icon name="heart" />讚
-                          </Button>
-                          <Label basic color="pink">
-                            {post.likeBy?.length}
-                          </Label>
-                        </Button>
-                      </Item.Extra>
-                    </Item.Content>
-                  </Item>
-                );
-              })}
-            </Item.Group> */}
-
             {/* -------------- */}
 
             <Card.Group>
