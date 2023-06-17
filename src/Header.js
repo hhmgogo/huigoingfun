@@ -27,6 +27,10 @@ function Header() {
         <Icon name="blogger" />
         Posts
       </Menu.Item>
+      <Menu.Item name="PostParent" as={Link} to="/PostParent">
+        <Icon name="like" />
+        PostParent
+      </Menu.Item>
       <Menu.Item name="Portfolio" as={Link} to="/Portfolio">
         <Icon name="like" />
         Portfolio

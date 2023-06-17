@@ -11,14 +11,14 @@ import {
   Form,
 } from "semantic-ui-react";
 import Topics from "../components/Topics";
+import LightboxComponent from "../components/LightboxComponent ";
 import { useParams } from "react-router-dom";
 import Firebase from "../pages/Firebase";
 import { useNavigate } from "react-router-dom";
+
 function Post() {
   const Navigate = useNavigate();
   const { postId } = useParams();
-
-  console.log(useParams());
   const currentDate = new Date().toLocaleDateString();
 
   const [post, setPost] = useState({ author: [] });
@@ -73,11 +73,9 @@ function Post() {
       try {
         const user = Firebase.auth().currentUser;
         if (user && user.uid) {
-          console.log(user.uid);
         } else {
           // UID 為空，執行其他程式碼，例如導向註冊頁面
           Navigate("/Login");
-          console.log(user.uid);
         }
         Firebase.firestore()
           .collection("posts")
@@ -96,7 +94,6 @@ function Post() {
         } else {
           console.log(`Post with id ${postId} not found.`);
         }
-        console.log(post.author.photoUrl);
       }
     };
     //留言取資料回來
@@ -192,9 +189,8 @@ function Post() {
                   <Image src={post.author.photoUrl} circular />
                   <Header.Content>{post.title}</Header.Content>
                   <Header.Subheader>
-                    {post.author.displayName || "使用者"}{" "}
+                    {post.author.displayName || "使用者"} {post.topic}
                   </Header.Subheader>
-                  <Header.Subheader>{post.topic}</Header.Subheader>
                   <Header.Subheader>
                     {post.createdAt
                       ? post.createdAt?.toDate().toLocaleDateString()
@@ -204,7 +200,8 @@ function Post() {
               </Grid>
             </Header>
             {/* 文章圖片 */}
-            <Image src={post.imageURL} size="large" />
+            {/* <Image src={post.imageURL} size="large" /> */}
+            <LightboxComponent id={postId} />
             {/* 文章內容 */}
             <Segment raised color="yellow" size="large">
               {post.conten}
