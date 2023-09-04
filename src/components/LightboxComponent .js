@@ -37,7 +37,7 @@ function LightboxComponent(props) {
       }
     };
     setData();
-  }, []);
+  }, [Navigate, postId]);
   console.log(post.imageURL);
   return (
     <StyledDiv>
